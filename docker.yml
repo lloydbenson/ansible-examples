@@ -1,0 +1,30 @@
+---
+#  - name: install docker
+#    yum: pkg=docker state=installed
+#    sudo: true
+#  - name: add docker group
+#    group: name=docker state=present
+#    sudo: true
+#  - name: add user to docker group
+#    user: name=user groups=docker state=present
+#    sudo: true
+#  - name: stop docker
+#    service: name=docker state=stopped
+#    sudo: true
+#  - name: start docker
+#    service: name=docker enabled=yes state=started
+#    sudo: true
+#  - name: docker hello-world
+#    shell: docker run hello-world
+#  - name: stop all docker containers
+#    shell: docker stop $(docker ps -a -q)
+#    ignore_errors: true
+#  - name: remove all docker containers
+#    shell: docker rm $(docker ps -a -q)
+#    ignore_errors: true
+#  - name: remove all docker images
+#    shell: docker rmi $(docker images -q)
+#  - name: clean unused docker containers
+#    shell: docker rm -v $(docker ps -a -q -f status=exited)
+#  - name: clean unused docker images
+#    shell: docker rmi $(docker images -f “dangling=true” -q)

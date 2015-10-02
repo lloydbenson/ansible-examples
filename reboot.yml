@@ -1,0 +1,16 @@
+---
+  - name: reboot
+    command: /usr/sbin/shutdown -r +1 "rebooting after patch in 1 min" 
+    async: 0
+    poll: 0
+    sudo: true
+    ignore_errors: true
+  - name: wait for server to come back up
+    delegate_to: localhost
+    wait_for: host={{ inventory_hostname }}
+              state=started
+              port=22
+              delay=120
+              timeout=300
+              connect_timeout=15
+    sudo: false
